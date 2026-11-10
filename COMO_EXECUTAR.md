@@ -17,15 +17,15 @@ Cada questão do trabalho está num **notebook separado**. Em todos eles, cada i
 |---|---|---|
 | `questao1.ipynb` | Questão 1: Domínio, imagem e curvas de nível | ✅ pronto |
 | `questao2.ipynb` | Questão 2: Limites e continuidade | 🚧 em desenvolvimento |
-| `questao3.ipynb` | Questão 3: Derivadas parciais, diferenciabilidade e continuidade | 🚧 em desenvolvimento |
-| `questao4.ipynb` | Questão 4: Plano tangente e reta normal | 🚧 em desenvolvimento |
+| `questao3.ipynb` | Questão 3: Derivadas parciais, diferenciabilidade e continuidade | ✅ implementado e verificado localmente |
+| `questao4.ipynb` | Questão 4: Plano tangente e reta normal | ✅ implementado e verificado localmente |
 | `requirements.txt` | lista das bibliotecas Python usadas por todos os notebooks | |
 | `COMO_EXECUTAR.md` | este guia | |
 | `Trabalho_Calculo_II_...pdf` | o enunciado do trabalho | |
 
 ## Passo 1: instalar o Python
 
-É preciso ter o **Python 3.10 ou mais recente**. Os notebooks foram testados com o Python 3.10.12.
+É preciso ter o **Python 3.10 ou mais recente**. A Questão 1 foi originalmente testada com Python 3.10.12; as Questões 3 e 4 foram executadas e verificadas localmente com Python 3.14.4.
 
 Para conferir se já está instalado, abra um terminal (no Windows, o "Prompt de Comando" ou o "PowerShell") e digite:
 
@@ -165,11 +165,45 @@ Estuda três funções de duas variáveis:
 
 ### Questão 3: Derivadas parciais, diferenciabilidade e continuidade (`questao3.ipynb`)
 
-🚧 Em desenvolvimento.
+Compara f(x,y) = xy/√(x²+y²) e g(x,y) = xy/(x²+y²), ambas com valor zero na origem.
+
+| Item | Conteúdo |
+|---|---|
+| 1 | Derivadas parciais na origem pela definição e tabela de incrementos positivos e negativos |
+| 2 | Superfícies e cortes pelos eixos; diagonal como contraste |
+| 3 | Aplicação linear candidata L(h,k)=0 |
+| 4 | Comparador de trajetórias, valores e quocientes de erro |
+| 5 | Demonstrações de continuidade, contraexemplos e relações lógicas |
+
+No comparador, escolha a trajetória e o lado do parâmetro. O controle **m** só atua na reta y=m x. O controle **p** marca o ponto com |t|=10⁻ᵖ; os gráficos de valores e erros mostram a sequência de aproximação completa. Arraste os gráficos 3D para girar.
+
+A pequena região omitida da malha de g é um recurso de renderização; não é uma exclusão do domínio. O ponto na origem aparece separadamente.
+
+Conclusões na origem: ambas têm parciais zero; f é contínua e g não é; nenhuma é diferenciável. A célula de conferências deve terminar com **OK**.
 
 ### Questão 4: Plano tangente e reta normal (`questao4.ipynb`)
 
-🚧 Em desenvolvimento.
+Estuda o paraboloide x²+y², o cone √(x²+y²) e a função xy/√(x²+y²), definida como zero na origem.
+
+| Item | Conteúdo |
+|---|---|
+| 1 | Seleção de função e ponto, com o ponto correspondente na superfície |
+| 2 | Plano tangente e reta normal somente nos pontos diferenciáveis |
+| 3 | Vetores T_x e T_y e normal pelo produto vetorial |
+| 4 | Comparação da origem com pontos regulares e explicação das falhas |
+| 5 | Zoom local, erro absoluto e erro dividido pela distância |
+
+**Visualizador:** selecione a função, digite a e b entre −5 e 5 e clique em **Atualizar**. Os exemplos aplicam a mudança imediatamente. O zoom usa uma vizinhança de lado horizontal 10⁻ᵖ em cada direção. As caixas **Plano**, **Reta normal** e **Vetores** controlam as camadas. As setas preservam direções, com comprimento ajustado para caber no zoom; os vetores originais aparecem no texto.
+
+Na origem do cone e da terceira função, plano e reta normal via diferencial ficam indisponíveis. Na terceira função, as setas que permanecem são apenas tangentes dos cortes coordenados. Em pontos regulares, os três modelos têm plano e normal.
+
+**Comparador de erros:** possui seus próprios campos de função e ponto; clique em **Comparar erros**. Os gráficos estáticos acima dele também permanecem salvos. Quando o ponto não é diferenciável, z=0 é apenas uma referência diagnóstica, não um plano tangente. A célula de conferências deve terminar com **OK**.
+
+### Material de apoio e organização das entregas
+
+Os notebooks 3 e 4 continuam **individuais e independentes**, sem junção com as demais questões. O resumo matemático, imagens estáticas com legendas e roteiro oral estão em [apoio_relatorio/README.md](apoio_relatorio/README.md). Esse material serve ao integrante que escreve o relatório; não é um relatório final unificado.
+
+Use o kernel do ambiente em que instalou `requirements.txt` (neste computador, `.venv`). Os resultados salvos podem ser lidos sem executar tudo, mas os controles precisam de kernel ativo. Não houve adição de dependências às sete bibliotecas previstas no projeto.
 
 ## Problemas comuns
 
