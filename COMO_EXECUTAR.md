@@ -16,7 +16,7 @@ Cada questão do trabalho está num **notebook separado**. Em todos eles, cada i
 | Arquivo | Conteúdo | Situação |
 |---|---|---|
 | `questao1.ipynb` | Questão 1: Domínio, imagem e curvas de nível | ✅ pronto |
-| `questao2.ipynb` | Questão 2: Limites e continuidade | 🚧 em desenvolvimento |
+| `questao2.ipynb` | Questão 2: Limites e continuidade | ✅ implementado e verificado localmente |
 | `questao3.ipynb` | Questão 3: Derivadas parciais, diferenciabilidade e continuidade | ✅ implementado e verificado localmente |
 | `questao4.ipynb` | Questão 4: Plano tangente e reta normal | ✅ implementado e verificado localmente |
 | `requirements.txt` | lista das bibliotecas Python usadas por todos os notebooks | |
@@ -25,7 +25,7 @@ Cada questão do trabalho está num **notebook separado**. Em todos eles, cada i
 
 ## Passo 1: instalar o Python
 
-É preciso ter o **Python 3.10 ou mais recente**. A Questão 1 foi originalmente testada com Python 3.10.12; as Questões 3 e 4 foram executadas e verificadas localmente com Python 3.14.4.
+É preciso ter o **Python 3.10 ou mais recente**. As Questões 1 e 2 foram testadas com Python 3.10.12; as Questões 3 e 4 foram executadas e verificadas localmente com Python 3.14.4.
 
 Para conferir se já está instalado, abra um terminal (no Windows, o "Prompt de Comando" ou o "PowerShell") e digite:
 
@@ -161,7 +161,26 @@ Estuda três funções de duas variáveis:
 
 ### Questão 2: Limites e continuidade (`questao2.ipynb`)
 
-🚧 Em desenvolvimento.
+Estuda três funções na origem:
+
+- f₁(x,y) = x²y/(x²+y²), com f₁(0,0) = 0
+- f₂(x,y) = xy/(x²+y²), com f₂(0,0) = 0
+- f₃(x,y) = (x²+y²)/(√(x²+y²+1)+1), com f₃(0,0) = 2
+
+| Seção do notebook | O que faz |
+|---|---|
+| Item 1: Visualização 3D e trajetórias | superfície 3D de cada função com retas, parábolas e uma espiral chegando à origem, gráfico de f ao longo de cada trajetória e um explorador interativo |
+| Item 2: Existência do limite | provas por confronto e ε-δ (f₁ e f₃) e por dois caminhos (f₂), com a conferência numérica dos limitantes e um verificador ε-δ interativo |
+| Item 3: Trajetórias não provam o limite | o argumento lógico e dois contraexemplos: f₂ (eixos e parábolas dão 0, a reta y = x dá 1/2) e g = x²y/(x⁴+y²) (todas as retas dão 0, a parábola y = x² dá 1/2) |
+| Item 4: Continuidade | as três condições da continuidade, comparando o limite com o valor atribuído, e a classificação da descontinuidade em removível ou não removível |
+| Item 5: Controle de f(0,0) | painel que muda só o valor na origem e mostra que o limite não muda, mas a continuidade sim |
+
+**Detalhes de uso:**
+- **Explorador de trajetórias (item 1):** escolha a trajetória e o parâmetro (m ou k) e aumente **p** para levar o ponto até t = ±10⁻ᵖ, cada vez mais perto da origem. O ponto vermelho é a posição atual; o ponto preto é o valor atribuído f(0,0).
+- **Verificador ε-δ (item 2):** para f₁ e f₃, o δ é o da prova, multiplicado por um **fator**. Com fator 1 o disco fica todo verde; aumente o fator para ver o δ ficar grande demais. Para f₂ não há δ da prova: escolha δ e o **L candidato** e veja que, com ε ≤ 1/2, nenhuma combinação deixa o disco todo verde.
+- **Painel do item 5:** escolha a função e mova **c = f(0,0)**. Os botões **valor do enunciado** e **valor do limite** levam c direto a esses valores; o segundo fica desativado para f₂, que não tem limite. A célula seguinte repete a análise para vários valores de c, sem widgets, para usar no relatório.
+
+Conclusões na origem: f₁ é contínua (limite 0 = f₁(0,0)); f₂ não tem limite, e nenhum valor de f₂(0,0) a torna contínua; f₃ tem limite 0 ≠ 2 = f₃(0,0), uma descontinuidade removível.
 
 ### Questão 3: Derivadas parciais, diferenciabilidade e continuidade (`questao3.ipynb`)
 
